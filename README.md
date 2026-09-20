@@ -4,15 +4,18 @@
 
 ## 简体中文
 
-ScholarFlow 是一套面向高校教师、研究生与科研团队的人工审核型 AI 科研工作流。它连接科研画像、论文检索与筛选、Zotero 归档、知识沉淀和本地 TeXstudio/LaTeX 写作。
+ScholarFlow 是一套面向高校教师、研究生与科研团队的人工审核型 AI 科研工作流。它不是另一个论文数据库，而是一个可组合现有科研插件与工具的编排层：先识别当前可用能力，再根据研究者画像连接论文检索与筛选、Zotero 归档、知识沉淀和本地 TeXstudio/LaTeX 写作。
 
 ```text
-科研画像 → 论文雷达 → 精读 / 保存 / 忽略
+科研画像 → 能力盘点 → 按任务调用 Consensus / 开放论文源 / 计算工具
+        → 论文雷达 → 精读 / 保存 / 忽略
         → Zotero → BibTeX → TeXstudio / LaTeX
         → literature-wiki（公开）+ research-profile（私有）
 ```
 
 默认每周筛选5篇论文，并在保存前交给研究者判断。IMA可以作为可选知识归档端。
+
+安装了 Consensus 等学术检索工具时，ScholarFlow 可以优先利用其证据检索、综合和引用追踪能力；未安装时会回退到 arXiv、OpenAlex、Crossref、Semantic Scholar 和出版社页面。任何单一插件都不是运行前提。
 
 快速开始：对助手说 `使用 $scholar-flow 开始我的科研工作流。`
 
@@ -27,7 +30,7 @@ ScholarFlow 是一套面向高校教师、研究生与科研团队的人工审�
 
 ## English
 
-ScholarFlow is a human-in-the-loop AI workflow connecting literature discovery, paper screening, Zotero, knowledge accumulation, and local TeXstudio/LaTeX. It separates shareable field knowledge from strictly private research context. Researchers retain final authority over correctness, novelty, citations, authorship, and publication.
+ScholarFlow is a plugin-aware, human-in-the-loop orchestration workflow connecting available academic tools, literature discovery, paper screening, Zotero, knowledge accumulation, and local TeXstudio/LaTeX. It uses connected research tools when available and degrades gracefully to open sources. It separates shareable field knowledge from strictly private research context. Researchers retain final authority over correctness, novelty, citations, authorship, and publication.
 
 Start with: `Use $scholar-flow to start my research workflow.`
 
@@ -49,7 +52,7 @@ Independent implementation; workflow ideas are referenced rather than upstream s
 
 ## Status
 
-Version 0.1 includes the workflow, privacy rules, onboarding, retrieval guidance, Zotero/LaTeX handoff, and a non-destructive workspace initializer. Direct Zotero API writing and scheduled retrieval are planned.
+Version 0.2 adds capability discovery, plugin-aware task routing, cross-provider deduplication, and graceful fallback while preserving the research profile, human review gates, privacy rules, Zotero/LaTeX handoff, and non-destructive workspace initializer. Direct Zotero API writing and scheduled retrieval are planned.
 
 ## License
 

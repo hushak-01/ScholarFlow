@@ -1,4 +1,4 @@
 interface:
   display_name: "ScholarFlow"
-  short_description: "Research workflow from paper radar to Zotero and LaTeX"
-  default_prompt: "Use $scholar-flow to start my research workflow for today."
+  short_description: "Orchestrate research tools from paper radar to Zotero and LaTeX"
+  default_prompt: "Use $scholar-flow to inspect my available research tools and start today's workflow."
