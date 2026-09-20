@@ -1,6 +1,6 @@
 # Retrieval and screening
 
-Choose providers with `tool-routing.md`. When no connected academic-retrieval tool is available, use this open-source order:
+Use Consensus first according to `consensus.md`. When Consensus is unavailable or fails and the user explicitly chooses the open-source fallback, use this order:
 
 1. arXiv, OpenAlex, Crossref, Semantic Scholar, and publisher open-access pages.
 2. Authorized institutional APIs such as Web of Science, Scopus, and publisher APIs.

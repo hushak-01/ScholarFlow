@@ -1,11 +1,11 @@
 # Tool routing and graceful fallback
 
-ScholarFlow coordinates capabilities; it does not assume that any named plugin is installed. At the start of a run, inspect the tools available in the current environment and build a compact capability matrix.
+ScholarFlow coordinates capabilities around Consensus as its primary academic-discovery provider. At the start of a run, inspect the tools available in the current environment and build a compact capability matrix. A declared dependency is not evidence that the tool is connected.
 
 | Capability | Preferred when available | Fallback | Human gate |
 |---|---|---|---|
-| Evidence search and synthesis | Connected academic search such as Consensus | arXiv, OpenAlex, Crossref, Semantic Scholar, publisher pages | Verify sources and relevance |
-| Citation chaining and related work | Academic citation graph or research agent | References/citations on publisher pages and open indexes | Confirm relationship and scope |
+| Evidence search and synthesis | Consensus MCP | arXiv, OpenAlex, Crossref, Semantic Scholar, publisher pages after user chooses fallback | Verify sources and relevance |
+| Citation chaining and related work | Consensus search/research capability when exposed | References/citations on publisher pages and open indexes | Confirm relationship and scope |
 | Full-text reading | Authorized full text plus a paper-reading tool | User-supplied PDF or legal open-access copy | Check theorem assumptions and page evidence |
 | Symbolic or numerical checking | Wolfram or an available computation runtime | Local Python/Julia/MATLAB environment when available | Researcher validates mathematics |
 | Reference management | Zotero | BibTeX/CSL JSON file prepared for review | Save only approved items |
@@ -16,7 +16,7 @@ ScholarFlow coordinates capabilities; it does not assume that any named plugin i
 
 1. Identify the task and required capabilities.
 2. Inspect what is connected, authorized, and suitable. Do not infer availability from a product name mentioned in documentation.
-3. Select the smallest set of tools that covers the task. Explain the routing only when it affects the result or the user asks.
+3. For literature discovery or evidence synthesis, select Consensus first. Select the smallest additional set of tools that covers the remaining task.
 4. Normalize outputs into one candidate record with title, authors, year, venue, DOI/link, provider, exact query, evidence level, access status, relevance, uncertainty, and decision.
 5. Deduplicate across providers by DOI, then normalized title.
 6. Stop at the relevant human gate: `精读 / 保存 / 忽略`, mathematical verification, or final publication approval.

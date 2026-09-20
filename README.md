@@ -12,7 +12,7 @@
 
 真正麻烦的是：**工具很多，但每次仍要重新解释研究方向、决定今天做什么，并手动把检索、筛选、精读、归档和写作串起来。**
 
-ScholarFlow 是一个可安装到 Codex 的科研工作流 Skill。它会先了解研究者，再根据当前可用的插件和工具组织每天或每周的科研任务。
+ScholarFlow 是一个可安装到 Codex 的科研工作流 Skill。它会先了解研究者，调用 Consensus 完成论文发现与证据检索，再把筛选、精读、Zotero 归档和 LaTeX 写作组织成每天或每周可以重复执行的流程。
 
 ### 它会怎么工作？
 
@@ -21,7 +21,7 @@ ScholarFlow 是一个可安装到 Codex 的科研工作流 Skill。它会先了�
   → 建立你的科研画像：方向、关键词、重要作者、期刊和排除项
 
 每次运行
-  → 检查当前有哪些科研插件和工具可用
+  → 检查 Consensus 是否已经连接
   → 根据画像规划今天或本周的任务
   → 调用合适的工具检索和筛选论文
   → 让你选择：精读 / 保存 / 忽略
@@ -41,7 +41,18 @@ ScholarFlow 是一个可安装到 Codex 的科研工作流 Skill。它会先了�
 | TeXstudio / LaTeX | 写作与编译论文 |
 | **ScholarFlow** | 了解研究者，并把以上工具组合成一套可重复的科研 SOP |
 
-ScholarFlow 不会重复造一个论文数据库。检测到 Consensus 等工具时，它会优先使用；没有这些插件时，会回退到 arXiv、OpenAlex、Crossref、Semantic Scholar 和出版社公开页面。
+ScholarFlow 不会重复造一个论文数据库。论文发现和证据检索会先调用 Consensus；若尚未连接，ScholarFlow 会提示完成连接。只有你明确选择备用方案时，才改用 arXiv、OpenAlex、Crossref、Semantic Scholar 和出版社公开页面。
+
+### 先连接 Consensus
+
+ScholarFlow v0.3 将 Consensus 作为论文检索依赖。按照 [Consensus 官方 Codex 文档](https://docs.consensus.app/docs/mcp) 运行：
+
+```text
+codex mcp add consensus --url https://mcp.consensus.app/mcp
+codex mcp login consensus
+```
+
+登录完成后请完全重启 Codex。Consensus 的 MCP/API 调用可能受账户方案和月度额度限制。
 
 ### 为什么还要让研究者做选择？
 
@@ -85,12 +96,12 @@ AI 可以减少查找和整理时间，但不能替代研究者判断：
 
 ### 当前版本
 
-v0.2 已支持：
+v0.3 已支持：
 
 - 不同研究者的科研画像；
-- 可用插件与工具盘点；
-- 按能力选择工具，而不是绑定单一品牌；
-- 插件不可用时自动降级到开放论文源；
+- Consensus MCP 正式依赖与连接检查；
+- 论文发现和证据综合优先调用 Consensus；
+- Consensus 不可用时提示连接，并由用户决定是否使用开放论文源；
 - 跨来源去重与检索记录；
 - `精读 / 保存 / 忽略` 人工审核；
 - Zotero、BibTeX 与本地 TeXstudio/LaTeX 衔接；
@@ -109,7 +120,7 @@ v0.2 已支持：
 
 ScholarFlow is a Codex Skill that turns separate research tools into a repeatable, human-reviewed workflow. It builds a researcher profile, inspects the academic tools currently available, plans research tasks, routes literature discovery to the best available provider, and hands approved papers to Zotero and local LaTeX/TeXstudio.
 
-It does not replace Consensus, Zotero, Wolfram, or academic databases. It coordinates them. When a preferred plugin is unavailable, ScholarFlow falls back to open sources while preserving queries, evidence, uncertainty, and human decisions.
+It does not replace Consensus, Zotero, Wolfram, or academic databases. It coordinates them. Consensus is the primary discovery dependency; when it is unavailable, ScholarFlow explains how to connect it and uses open sources only when the researcher explicitly chooses that fallback.
 
 Start in a new Codex task:
 

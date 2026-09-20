@@ -1,4 +1,12 @@
 interface:
   display_name: "ScholarFlow"
   short_description: "Orchestrate research tools from paper radar to Zotero and LaTeX"
-  default_prompt: "Use $scholar-flow to inspect my available research tools and start today's workflow."
+  default_prompt: "Use $scholar-flow with Consensus to start today's human-reviewed research workflow."
+
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "consensus"
+      description: "Consensus academic search for peer-reviewed literature, evidence synthesis, and citation discovery"
+      transport: "streamable_http"
+      url: "https://mcp.consensus.app/mcp"
